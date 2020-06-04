@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Learnjavascript02 &middot; My New Hugo Site </title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.71.0" />
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://blog.frank30941.nctu.me/css/nix.css">
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+
+
+
+
+
+
+    </head>
+
+    <body>
+        <header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+      <a class="navbar-brand" id="green-terminal" href='/'>
+        Frank Hsieh@frank30941 ~ $
+      </a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href='/'>/home/Frank Hsieh</a>
+        </li>
+        
+				
+				
+				<li class="dropdown">
+                    
+            		<a href="https://blog.frank30941.nctu.me/posts">~/posts</a>
+            		
+        		</li>
+        		
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+        <div class="flex-wrapper">
+            <div class="container wrapper">
+                <h1><a href="blog.frank30941.nctu.me/posts/learnjavascript02/">Learnjavascript02</a></h1>
+                <span class="post-date">2020-06-02 </span>
+                <div class="post-content">
+                    <h1 id="let-we-build-a-calculator-on-the-browser">Let we build a calculator on the browser</h1>
+<h2 id="desgin-the-web-page-by-html">desgin the web page by HTML</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">html</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39; \
+</span><span style="color:#e6db74">    &lt;div&gt; \
+</span><span style="color:#e6db74">        &lt;input type=&#34;text&#34; id=&#34;inputBox&#34; value=&#34;0&#34;&gt; \
+</span><span style="color:#e6db74">        &lt;button type=&#34;button&#34; id=&#34;addSign&#34;&gt;+&lt;/button&gt; \
+</span><span style="color:#e6db74">        &lt;button type=&#34;button&#34; id=&#34;subtractSign&#34;&gt;-&lt;/button&gt; \
+</span><span style="color:#e6db74">        &lt;button type=&#34;button&#34; id=&#34;multiplySign&#34;&gt;*&lt;/button&gt; \
+</span><span style="color:#e6db74">        &lt;button type=&#34;button&#34; id=&#34;divideSign&#34;&gt;/&lt;/button&gt; \
+</span><span style="color:#e6db74">        &lt;button type=&#34;button&#34; id=&#34;equalSign&#34;&gt;=&lt;/button&gt; \
+</span><span style="color:#e6db74">        &lt;button type=&#34;button&#34; id=&#34;cleanSign&#34;&gt;Clean&lt;/button&gt; \
+</span><span style="color:#e6db74">    &lt;/div&gt;&#39;</span>;
+document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">html</span>;
+</code></pre></div><h2 id="add-subtract-multiply-and-divide">Add, subtract, multiply and divide</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">a1</span>, <span style="color:#a6e22e">a2</span>){
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a1</span><span style="color:#f92672">+</span><span style="color:#a6e22e">a2</span>;
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">substract</span>(<span style="color:#a6e22e">a1</span>, <span style="color:#a6e22e">a2</span>){
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a1</span><span style="color:#f92672">-</span><span style="color:#a6e22e">a2</span>;
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">multiply</span>(<span style="color:#a6e22e">a1</span>, <span style="color:#a6e22e">a2</span>){
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a1</span><span style="color:#f92672">*</span><span style="color:#a6e22e">a2</span>;
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">divide</span>(<span style="color:#a6e22e">a1</span>, <span style="color:#a6e22e">a2</span>){
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a1</span><span style="color:#f92672">/</span><span style="color:#a6e22e">a2</span>;
+    <span style="color:#66d9ef">return</span> isNaN(<span style="color:#a6e22e">tmp</span>)<span style="color:#f92672">?</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">tmp</span>;
+}
+
+</code></pre></div><h2 id="how-to-work">How to work?</h2>
+<p>let we get elements.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">inputBox</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;inputBox&#39;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">addSign</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;addSign&#39;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">subtractSign</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;subtractSign&#39;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">multiplySign</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;multiplySign&#39;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">divideSign</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;divideSign&#39;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">equalSign</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;equalSign&#39;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cleanSign</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;cleanSign&#39;</span>);
+</code></pre></div><p>We Write a function what name is preRun,</p>
+<p>it will pre-process the data when you type numbers.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">preRun</span>(<span style="color:#a6e22e">signType</span>){
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> Number(<span style="color:#a6e22e">inputBox</span>.<span style="color:#a6e22e">value</span>);
+    <span style="color:#66d9ef">if</span>(isNaN(<span style="color:#a6e22e">data</span>)){
+        <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;please type number&#39;</span>);
+        <span style="color:#66d9ef">return</span>;
+    }
+    <span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">tmp</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;number&#39;</span>){
+        <span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">tmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>;
+    }
+    <span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">sign</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;string&#39;</span>){
+        <span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">sign</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signType</span>;
+        <span style="color:#66d9ef">return</span>;
+    }
+    <span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">sign</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signType</span>;
+    <span style="color:#a6e22e">run</span>();
+}
+</code></pre></div><p>We Write a function what name is run,</p>
+<p>it will process the data and show the result on inputBox when you type button of equal-sign.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">run</span>(){
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> Number(<span style="color:#a6e22e">inputBox</span>.<span style="color:#a6e22e">value</span>);
+    <span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">sign</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;string&#39;</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">tmp</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;number&#39;</span>)
+        <span style="color:#66d9ef">return</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">switch</span>(<span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">sign</span>){
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;add&#39;</span> <span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">tmp</span>, <span style="color:#a6e22e">data</span>);
+            <span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;subtract&#39;</span> <span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">substract</span>(<span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">tmp</span>, <span style="color:#a6e22e">data</span>);
+            <span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;multiply&#39;</span> <span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">multiply</span>(<span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">tmp</span>, <span style="color:#a6e22e">data</span>);
+            <span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;divide&#39;</span> <span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">divide</span>(<span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">tmp</span>, <span style="color:#a6e22e">data</span>);
+            <span style="color:#66d9ef">break</span>;
+    }
+    <span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">tmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">result</span>;
+    <span style="color:#a6e22e">inputBox</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">result</span>;
+}
+</code></pre></div><p>just clean data function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">cleanData</span>(){
+    <span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">tmp</span>;
+    <span style="color:#66d9ef">delete</span> <span style="color:#a6e22e">preRun</span>.<span style="color:#a6e22e">sign</span>;
+    <span style="color:#a6e22e">inputBox</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0&#34;</span>;
+}
+</code></pre></div><p>let we regist event.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">addSign</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>,<span style="color:#66d9ef">function</span>(){ <span style="color:#a6e22e">preRun</span>(<span style="color:#e6db74">&#39;add&#39;</span>); });
+<span style="color:#a6e22e">subtractSign</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>,<span style="color:#66d9ef">function</span>(){ <span style="color:#a6e22e">preRun</span>(<span style="color:#e6db74">&#39;subtract&#39;</span>); });
+<span style="color:#a6e22e">multiplySign</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>,<span style="color:#66d9ef">function</span>(){ <span style="color:#a6e22e">preRun</span>(<span style="color:#e6db74">&#39;multiply&#39;</span>); });
+<span style="color:#a6e22e">divideSign</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>,<span style="color:#66d9ef">function</span>(){ <span style="color:#a6e22e">preRun</span>(<span style="color:#e6db74">&#39;divide&#39;</span>); });
+
+<span style="color:#a6e22e">equalSign</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>,<span style="color:#66d9ef">function</span>(){ <span style="color:#a6e22e">run</span>(); });
+<span style="color:#a6e22e">cleanSign</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>,<span style="color:#66d9ef">function</span>(){ <span style="color:#a6e22e">cleanData</span>(); });
+</code></pre></div>
+                </div>
+                
+                <div class="post-comments">
+                    
+                </div>
+                
+            </div>
+            <footer class="footer text-center">
+<p>Copyright &copy; 2020 Teng-Wei, Hsieh -
+<span class="credit">
+	Powered by
+	<a target="_blank" href="https://gohugo.io">Hugo</a>
+	and
+	<a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+</span>
+</p>
+</footer>
+
+        </div>
+    </body>

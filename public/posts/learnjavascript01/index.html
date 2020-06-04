@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Learnjavascript01 &middot; My New Hugo Site </title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.71.0" />
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://blog.frank30941.nctu.me/css/nix.css">
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Inconsolata%7COpen+Sans%7CConcert+One" rel="stylesheet">
+
+
+
+
+
+
+    </head>
+
+    <body>
+        <header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse font-header">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+      <a class="navbar-brand" id="green-terminal" href='/'>
+        Frank Hsieh@frank30941 ~ $
+      </a>
+		</div>
+
+		
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href='/'>/home/Frank Hsieh</a>
+        </li>
+        
+				
+				
+				<li class="dropdown">
+                    
+            		<a href="https://blog.frank30941.nctu.me/posts">~/posts</a>
+            		
+        		</li>
+        		
+
+			</ul>
+		</div>
+	</div>
+</nav>
+</header>
+
+        <div class="flex-wrapper">
+            <div class="container wrapper">
+                <h1><a href="blog.frank30941.nctu.me/posts/learnjavascript01/">Learnjavascript01</a></h1>
+                <span class="post-date">2020-06-02 </span>
+                <div class="post-content">
+                    <h2 id="learn-javascript-for-beginner">Learn Javascript for beginner.</h2>
+<p>Open your chrome browser, amd press key &ldquo;F12&rdquo;.</p>
+<p>You will see the develop tool, And look for the console panel.</p>
+<p>Then you can writting code in the panel now.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#39;Hello world&#39;</span>);
+</code></pre></div><p>Do you see the alert box?
+let&rsquo;s to next step</p>
+<h2 id="scope">Scope</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>);
+</code></pre></div><p>print: 1</p>
+<p>Some of code about function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">test</span>(){
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">b</span>;
+}
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">b</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">test</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">test</span>());
+</code></pre></div><p>print: Uncaught ReferenceError: b is not defined</p>
+<p>print: ƒ test(){ var b=1; return b; }</p>
+<p>print: 1</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">a</span>){
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">a</span>){
+        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;b&#39;</span>;
+    }<span style="color:#66d9ef">else</span>{
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c&#39;</span>;
+    }
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">a</span>){
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">b</span>;
+    }<span style="color:#66d9ef">else</span>{
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c</span>;
+    }
+}
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">test</span>(<span style="color:#66d9ef">true</span>));
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">test</span>(<span style="color:#66d9ef">false</span>));
+</code></pre></div><p>print: Uncaught ReferenceError: c is not defined</p>
+<p>print: c</p>
+<h2 id="switch--const">switch &amp; const</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">a</span>){
+    <span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">a</span>) {
+        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;b&#39;</span>;
+            <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;bb&#39;</span>;
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">b</span>;
+            <span style="color:#75715e">//break;
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c&#39;</span>;
+            <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;cc&#39;</span>;
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">c</span>;
+            <span style="color:#75715e">//break;
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">d</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;d&#39;</span>;
+            <span style="color:#a6e22e">d</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;dd&#39;</span>;
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">d</span>;
+            <span style="color:#75715e">//break;
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">default</span> <span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;type number&#39;</span>;
+            <span style="color:#75715e">//break;
+</span><span style="color:#75715e"></span>    }
+}
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">test</span>(<span style="color:#ae81ff">1</span>));
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">test</span>(<span style="color:#ae81ff">2</span>));
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">test</span>(<span style="color:#ae81ff">3</span>));
+</code></pre></div><p>print: bb</p>
+<p>print: cc</p>
+<p>print: Uncaught TypeError: Assignment to constant variable.</p>
+
+                </div>
+                
+                <div class="post-comments">
+                    
+                </div>
+                
+            </div>
+            <footer class="footer text-center">
+<p>Copyright &copy; 2020 Teng-Wei, Hsieh -
+<span class="credit">
+	Powered by
+	<a target="_blank" href="https://gohugo.io">Hugo</a>
+	and
+	<a target="_blank" href="https://github.com/LordMathis/hugo-theme-nix/">Nix</a> theme.
+</span>
+</p>
+</footer>
+
+        </div>
+    </body>

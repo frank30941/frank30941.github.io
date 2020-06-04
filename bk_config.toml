@@ -1,0 +1,67 @@
+baseURL = "https://blog.frank30941.nctu.me/"
+languageCode = "en-us"
+title = "Solar Theme"
+theme = "solar-theme-hugo"
+preserveTaxonomyNames = true
+disqusShortname = "frank30491"
+googleAnalytics = ""
+pluralizeListTitles = false
+paginate = 5
+pygmentsStyle = "solarized-dark" # solarized-light, -dark or -dark256
+copyright = ""
+# Set the followings to true as part of your site SEO
+enableRobotsTXT = true
+canonifyURLs = true
+
+[params]
+  scheme = "dark" # light, dark, gray or preference
+  description = "My blog"
+  navbarTitle = "home"
+  viewMorePostLink     = "/about/"
+# Optional Params
+  # Sets navbarTitle to match the section of the website
+  dynamicTitles        = true
+  # Sets RSS icons to appear on the sidebar with the social media buttons
+  rssAppearAtTop       = true
+  rssAppearAtBottom    = true
+  # Sets Social Media icons to appear on the sidebar
+  socialAppearAtTop    = true
+  socialAppearAtBottom = true
+  # Sets Categories to sort by number of posts instead of alphabetical
+  categoriesByCount    = true
+  # set to show or to hide categories in the sidebar
+  showSidebarCategories = true
+  # Sets Estimated Reading Time to appear in post headers
+  includeReadingTime   = true
+  # Sets the Favicon and Version for the site. Default support is for
+  # apple-touch-icon-precomposed.png, favicon.png, favicon.ico, and mstile.png.
+  # These are stored in the favicon folder. See the following for more information:
+  # https://github.com/audreyr/favicon-cheat-sheet
+  loadFavicon          = true
+  # I change the favicon import method, look at ./layouts/partials/favicon.html
+  #faviconVersion       = "/img/favicon.jpg"
+  # Sets Social Share links to appear on posts
+  socialShare          = true
+  # Sets specific share to appear on posts (default behavior is to appear)
+  socialShareTwitter   = true
+  socialShareGoogleplus = true
+  socialShareFacebook  = true
+  socialShareReddit    = true
+  socialShareLinkedin  = true
+  socialShareStumbleupon = true
+  socialSharePinterest = true
+  socialShareEmail     = true
+
+[menu]
+  [[menu.main]]
+    name = "Feed"
+    url = "/index.xml"
+  [[menu.main]]
+    name = "Repository"
+    url = "https://github.com/bake/solar-theme-hugo/"
+  [[menu.other]]
+    name = "Hugo"
+    url = "https://themes.gohugo.io/solar-theme-hugo/"
+  [[menu.other]]
+    name = "Demo"
+    url = "https://themes.gohugo.io/theme/solar-theme-hugo/"
